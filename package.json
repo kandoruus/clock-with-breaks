@@ -1,7 +1,7 @@
 {
-  "name": "fcc-front-end-projects-template",
+  "name": "clock-with-breaks",
   "version": "0.1.0",
-  "homepage": "https://kandoruus.github.io/fcc-front-end-projects-template",
+  "homepage": "https://kandoruus.github.io/clock-with-breaks",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.2",
