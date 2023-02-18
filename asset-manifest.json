@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/clock-with-breaks/static/css/main.d49757f7.css",
+    "main.js": "/clock-with-breaks/static/js/main.37e7b468.js",
+    "index.html": "/clock-with-breaks/index.html",
+    "main.d49757f7.css.map": "/clock-with-breaks/static/css/main.d49757f7.css.map",
+    "main.37e7b468.js.map": "/clock-with-breaks/static/js/main.37e7b468.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d49757f7.css",
+    "static/js/main.37e7b468.js"
+  ]
+}
