@@ -37,7 +37,6 @@ export const reducer = (
     case RESET:
       return initState;
     case START_SESSION:
-      console.log('reduce START_SESSION');
       return {
         ...state,
         clockDisplay: {
@@ -47,7 +46,6 @@ export const reducer = (
         isSession: true,
       };
     case END_SESSION:
-      console.log('reduce END_SESSION');
       return {
         ...state,
         clockDisplay: {

@@ -6,12 +6,28 @@ import {
   tickAction,
 } from 'app/action-creators';
 import { clockStateType, DispatchType, displayTimeType } from 'app/types';
-import React, { useEffect } from 'react';
+import { BEEP_URL } from 'helper/constants';
+import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 export const TimerDisplay = () => {
   const state = useSelector((state: clockStateType) => state);
+  const clockSound: React.MutableRefObject<HTMLAudioElement | null> =
+    useRef(null);
   const dispatch: DispatchType = useDispatch();
+
+  const playBeep = () => {
+    if (clockSound.current) {
+      clockSound.current.play();
+    }
+  };
+
+  const stopBeep = () => {
+    if (clockSound.current) {
+      clockSound.current.pause();
+      clockSound.current.currentTime = 0;
+    }
+  };
 
   const toTimeString = (time: number): string => {
     return time < 10 ? '0' + time : time.toString();
@@ -23,6 +39,7 @@ export const TimerDisplay = () => {
 
   const handleReset = (event: React.MouseEvent<HTMLDivElement>) => {
     event.preventDefault();
+    stopBeep();
     dispatch(resetAction());
   };
 
@@ -35,10 +52,10 @@ export const TimerDisplay = () => {
     if (state.clockDisplay.seconds > 0 || state.clockDisplay.minutes > 0) {
       dispatch(tickAction());
     } else if (state.isSession) {
-      console.log('dispatch endSessionAction');
+      playBeep();
       dispatch(endSessionAction());
     } else {
-      console.log('dispatch startSessionAction');
+      playBeep();
       dispatch(startSessionAction());
     }
   };
@@ -67,6 +84,7 @@ export const TimerDisplay = () => {
           <i className="fa fa-refresh"></i>
         </div>
       </div>
+      <audio id="beep" preload="auto" src={BEEP_URL} ref={clockSound}></audio>
     </div>
   );
 };

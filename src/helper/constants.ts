@@ -9,3 +9,5 @@ export const RESET = 'RESET';
 export const START_SESSION = 'START_SESSION';
 export const END_SESSION = 'END_SESSION';
 export const TICK = 'TICK';
+export const BEEP_URL =
+  'https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav';
